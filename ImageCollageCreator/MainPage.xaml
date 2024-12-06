@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ImageCollageCreator.MainPage"
+             Title="Image Collage Creator">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label Text="Welcome to Image Collage Creator" 
+               FontSize="24" 
+               HorizontalOptions="Center" />
+
+        <Button Text="Create New Collage" 
+                Clicked="OnCreateCollageClicked" />
+
+        <Button Text="Open Collage" 
+                Clicked="OnOpenCollageClicked" />
+
+        <CollectionView x:Name="RecentCollages"
+                        ItemsSource="{Binding Collages}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label Text="{Binding Title}" FontSize="18" />
+                        <Label Text="{Binding CreatedDate}" FontSize="14" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
+
